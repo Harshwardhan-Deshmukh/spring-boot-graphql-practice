@@ -1,0 +1,61 @@
+---------------------------------
+mutation {
+  createUser(
+    name: "Karan Singh"
+    phone: "93493940934"
+    email: "karan39@gmail.com"
+    password: "karan9s9d"
+  ) {
+    name
+    userId,
+    email
+  }
+}
+------------------------------
+
+query {
+  getUsers {
+    userId,
+    name,
+    phone
+  }
+}
+-----------------------------------
+
+query {
+  getUser(userId: 1) {
+    userId,
+    name,
+    phone
+  }
+}
+
+-------------------------------------
+
+query {
+  getUsers {
+    userId,
+    name,
+    orders {
+      orderId
+    }
+  }
+}
+
+-------------------------------------
+
+mutation {
+  createOrder(
+    orderDetail:"Gaming",
+    address:"Mumbai",
+  	price:600,
+    userId: 3
+  ) {
+    user {
+      name,
+      email,
+    }
+    orderDetail,
+    price
+  }
+}
